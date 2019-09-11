@@ -6,7 +6,7 @@
 
 module.exports = {
   siteName: 'Moses Gathuku',
-  siteDescription: 'Developer Based in Nairobi, Ruby,Rails,Vue,TailwindCss,JAMstack and DevOps lover. +254705112855.',
+  siteDescription: 'Blogging about Technology',
 
   plugins: [
     {
