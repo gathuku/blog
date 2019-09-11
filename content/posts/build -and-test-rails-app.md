@@ -2,7 +2,7 @@
 title: Build and Test Rails app with Github Actions
 date: 2019-09-09
 published: true
-tags: ['Markdown', 'Cover Image']
+tags: []
 series: false
 cover_image: ./images/actions_1.png
 canonical_url: false
