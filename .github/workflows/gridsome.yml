@@ -10,7 +10,7 @@ jobs:
     - name: Install npm
       run: npm install 
     - name: Build 
-      run: gridsome build
+      run: npm build
 
 
 
