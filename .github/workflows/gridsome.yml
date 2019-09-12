@@ -6,11 +6,11 @@ jobs:
     name: Build Ubuntu
     runs-on: ubuntu-latest
     steps:
-      uses: actions/checkout@v1
-      name: Install npm
-      run: npm install 
-      name: Build 
-      run: gridsome build
+    uses: actions/checkout@v1
+    name: Install npm
+    run: npm install 
+    name: Build 
+    run: gridsome build
 
 
 
