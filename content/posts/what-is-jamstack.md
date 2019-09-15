@@ -4,7 +4,7 @@ date: 2019-09-15
 published: true
 tags: []
 series: false
-cover_image: ./images/jamstack.png
+cover_image: ./images/jam.jpeg
 canonical_url: false
 description: "JAMstack is revolutionising the way we think about workflow by providing a simpler developer experience, better performance, lower cost and greater scalability."
 ---
