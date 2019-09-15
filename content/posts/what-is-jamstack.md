@@ -42,16 +42,7 @@ Here are some of the benefits
 
 ## JAMstack Workflow
 Here's an ideal JAMstack workflow
-
-```flow
-op=>operation: Develop
-st=>start: Version Control
-op=>operation: Automated Builds
-st>start: Static Assests
-st=>start: Atomic Deploy
-st=>start: Invalidate Cache and pre-render
-op=>operation: Update CDN
-```
+![](./images/jam_workflow.png)
 
 ## Getting Started
 ### Development
