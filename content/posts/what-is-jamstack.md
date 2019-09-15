@@ -1,7 +1,7 @@
 ---
 title: What's JAMstack
 date: 2019-09-15
-published: false
+published: true
 tags: []
 series: false
 cover_image: ./images/jamstack.png
@@ -39,3 +39,42 @@ Here are some of the benefits
 
 5. Scalability
 >If your product suddenly goes viral and has many active users, the CDN seamlessly compensates
+
+## JAMstack Workflow
+Here's an ideal JAMstack workflow
+
+```flow
+op=>operation: Develop
+st=>start: Version Control
+op=>operation: Automated Builds
+st>start: Static Assests
+st=>start: Atomic Deploy
+st=>start: Invalidate Cache and pre-render
+op=>operation: Update CDN
+```
+
+## Getting Started
+### Development
+However you decide to generate your HTML assets is up to you. The three most common approaches are:
+1. Handcoding
+>Simple and effective method of writing HTML, it's ideal for super simple pages.
+
+2. Static site generators
+>Most JAMstack sites are powered by a static site generator. There's no enforcement on which SSG you decide to use.
+eg. Gatsby,Next.js,Gridsome
+
+### Deployment
+Your built site needs to be hosted somewhere. There are great services that provides this for free and with ease.
+> Netlify,Githubpages
+
+### Dynamic Parts
+JAMstack websites don't have to be static. There are great services available to help bring some dynamic data to your product.
+
+1. Custom functions
+You can also abstract your own functions into reusable APIs. For this you can use [AWS lambda](https://aws.amazon.com/lambda/features/) functions or [Netlify Functions](https://functions.netlify.com/examples/)
+
+2. Forms
+A great way to interact with your audience
+
+3. Search
+Rely on third party services to integrate a search functionality
