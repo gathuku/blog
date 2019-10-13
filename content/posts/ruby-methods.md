@@ -4,7 +4,7 @@ date: 2019-10-13
 published: true
 tags: []
 series: false
-cover_image: ./images/ruby-methods.jpeg
+cover_image: ./images/ruby_methods.jpeg
 canonical_url: false
 description: "Ruby methods are very similar to functions in any other programming language. Ruby methods are used to bundle one or more repeatable statements into a single unit."
 ---
