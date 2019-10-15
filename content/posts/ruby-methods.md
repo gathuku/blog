@@ -13,7 +13,7 @@ A getter method is a method that gets a value of an instance variable.
 Without a getter method, you can not retrieve a value of an instance
 variable outside the class the instance variable is instantiated from.
 ### Example
-```
+```ruby
 class Movie
   def initialize(name)
     @name = name
@@ -36,7 +36,7 @@ if you try to set a value of an instance variable outside its class, Ruby raises
 try to retrieve a value of an instance variable outside its class without a getter method
 
 ### Example
-```
+```ruby
 class Movie
   def initialize(name)
     @name = name
@@ -65,7 +65,7 @@ There are three types fo accessors in Ruby.
 - `attr_accessor` automatically generates a getter and setter method for each given attribute.
 
 In below example, name and year are retrieved outside Movie class even though there is no getter method for either of them. This is because attr_reader generates a getter method for each given attribute.
-```
+```ruby
 class Movie
   attr_reader :name, :year
 
@@ -80,7 +80,7 @@ p obj1.year #=> 2019
 ```
 As I mentioned above, attr_witer generates a setter method for each given attribute. Therefore you can assign new values to ob1 without explicitly writing setter methods for name and year
 
-```
+```ruby
 class Movie
   attr_reader :name, :year
   attr_writer :name, :year
@@ -98,7 +98,7 @@ p obj1.year #=> 2020
 ```
 
 Lastly, attr_accessor does what attr_reader and attr_writer do with just one line of code! It will automatically generate a getter and setter mehod for each given attribute.
-```
+```ruby
 class Movie
   attr_accessor :name, :year
 
