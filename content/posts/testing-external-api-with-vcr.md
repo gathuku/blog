@@ -12,20 +12,21 @@ description: "Running external APIs tests can be time-consuming, VCR is a ruby g
 Testing external APIs can be a time-consuming task, [VCR](https://github.com/vcr/vcr) is a ruby gem that allows you to record test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
 
 ### How VCR works?
-When we make the first API call the request goes through full request and response cycle. When the response is returned. VCR records the API request and response, which it saves as a `cassette`. In other words, VCR stubs it for future use. When the test is run again, no API call is made. Instead, VCR stubs the response. The test will run much faster as a result.
+When we make the first API call the request goes through full request and response cycle. VCR records the API request and response, which it saves as a `cassette`. In other words, VCR stubs it for future use. When the test is run again, no API call is made. Instead, VCR stubs the response. The test will run much faster as a result.
 
 ### Installation
-VCR works together with [webmock](https://github.com/bblimke/webmock) a library for stubbing and setting expectations of HTTP requests. Add the latest version of VCR and Webmock in your `Gemfile`. Run `bundle install` to update.
+VCR works together with [webmock](https://github.com/bblimke/webmock) a library for stubbing and setting expectations of HTTP requests. Add the latest version of VCR and Webmock in your `Gemfile`. Run `bundle install` to update dependencies.
 
 ```ruby
 gem 'vcr', '~> 5.0'
 gem 'webmock', '~> 3.7', '>= 3.7.6'
 ```
 > Its good to add them in test group gems
-> Add them as development dependencies in you are developing a gem.
+
+> Add them as development dependencies if you are developing a gem.
 
 ### Configuration
-VCR implements a [configure](https://relishapp.com/vcr/vcr/v/1-6-0/docs/configuration/) block for different configuration. Add the below block in your `test_helper.rb`
+VCR implements a [configure](https://relishapp.com/vcr/vcr/v/1-6-0/docs/configuration/) block for different configuration. Add the below block in your `test_helper.rb` file.
 
 ```ruby
 VCR.configure do |config|
@@ -39,14 +40,12 @@ VCR.configure do |config|
   }
 end
 ```
-- `allow_http_connections_when_no_cassette` - allows actual full request and response cycle, when no cassette found.
-- `cassette_library_dir` - directy where cassettes are stored.
-- `hook_into`- specifies a stubbing library
-- `ignore_request` - default is `false` when `true` makes full request without cassettes even if they exists.
-- `ignore-localhost` -  prevent VCR
-from having any affect on localhost requests
-- `default_cassette_options` - takes a hash
-that provides defaults for each cassette you use
+- __allow_http_connections_when_no_cassette__ - allows actual full request and response cycle, when no cassette found.
+- __cassette_library_dir__ - directory where cassettes are stored.
+- __hook_into__ - specifies a request stubbing library
+- __ignore_request__ - default is `false` when `true` VCR makes full request without using cassettes even if they exists.
+- __ignore-localhost__ -  prevent VCR from having any affect on localhost requests
+- __default_cassette_options__ - takes a hash that provides defaults for each cassette you use
 
 ### Testing API calls
 We are now ready to start testing APIs calls. For demo, purpose lets use [JSONplaceholder](https://jsonplaceholder.typicode.com/) a fake API for developers.
