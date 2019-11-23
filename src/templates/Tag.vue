@@ -43,7 +43,7 @@ export default {
     PostCard
   },
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Blog'
   }
 }
 </script>
@@ -51,4 +51,3 @@ export default {
 <style lang="scss">
 
 </style>
-
