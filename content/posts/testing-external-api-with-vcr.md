@@ -1,5 +1,5 @@
 ---
-title: Testing External API with VCR
+title: Testing External APIs with VCR
 date: 2019-11-23
 published: true
 tags: []
@@ -9,7 +9,7 @@ canonical_url: false
 description: "Running external APIs tests can be time-consuming, VCR is a ruby gem that allows you to record test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests"
 ---
 
-Testing external APIs can be a time-consuming API, [VCR](https://github.com/vcr/vcr) is a ruby gem that allows you to record test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
+Testing external APIs can be a time-consuming task, [VCR](https://github.com/vcr/vcr) is a ruby gem that allows you to record test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
 
 ### How VCR works?
 When we make the first API call the request goes through full request and response cycle. When the response is returned. VCR records the API request and response, which it saves as a `cassette`. In other words, VCR stubs it for future use. When the test is run again, no API call is made. Instead, VCR stubs the response. The test will run much faster as a result.
