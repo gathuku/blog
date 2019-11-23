@@ -1,6 +1,6 @@
 ---
 title: Testing External API with VCR
-date: 2019-10-23
+date: 2019-11-23
 published: true
 tags: []
 series: false
