@@ -8,7 +8,7 @@
 		</h1>
 
 		<p class="author__intro">
-		 Developer Based in Nairobi, Ruby,Rails,Vue,JAMstack and DevOps lover. +254705112855.
+		 Developer Based in Nairobi. Ruby,Rails,Vue,JAMstack and DevOps lover. +254705112855.
 		</p>
 
 		<p class="author__links">
