@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="post-comments">
+    <div class="content-box disqus-section">
       <!-- Add comment widgets here -->
       <vue-disqus shortname="gathuku-blog" :identifier="$page.post.title"></vue-disqus>
     </div>
@@ -128,5 +128,8 @@ query Post ($path: String!) {
 
 .post-author {
   margin-top: calc(var(--space) / 2);
+}
+.disqus-section {
+  margin-top: 1em;
 }
 </style>
