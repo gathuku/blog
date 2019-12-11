@@ -7,10 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Install npm
-      run: npm install 
-    - name: Build 
-      run: npm run-script build
-
-
-
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: npm install
+    - run: npm test
