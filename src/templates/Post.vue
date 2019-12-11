@@ -48,6 +48,26 @@ export default {
         {
           name: 'description',
           content: this.$page.post.description
+        },
+        {
+          property: "og:title",
+          content: this.$page.post.title
+        },
+        {
+          name: "twitter:card",
+          content: this.$page.post.coverImage ? "summary_large_image" : "summary",
+        },
+        {
+          name: "twitter:creator",
+          content: "@Gathukumose"
+        },
+        {
+          property: "og:description",
+          cotent: this.$page.post.description
+        },
+        {
+          property: "og:image",
+          content: this.$page.post.coverImage || ""
         }
       ]
     }
