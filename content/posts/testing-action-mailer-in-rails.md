@@ -76,3 +76,49 @@ end
 After this ensure you server is running and navigate to route `http://localhost:3000/rails/mailers`. All your mailers and sepecific email methods will be listed. Click `welcome` to view the welcome email design.
 
 ### Testing
+
+Your mailers class just like any other part of Rails application should be tested to ensure they are working properly.
+Why should you test your mailers? below are some of the reasons.
+
+- To ensure that emails are being processed (created and sent).
+- To ensure that the email content is correct (subject, sender, body, etc).
+- To ensure the right emails are being sent at the right times.
+
+There are two aspects of testing mailers.
+ 1. Units tests
+ 2. Functional tests
+
+#### Units tests
+
+ In unit tests we run the mailer in isolation with tightly controlled inputs and compare the output to a known value (a fixture.)
+ In our `NotificationMailer` we have `welcome` action which is used to send a welcome email when users signs up. Below is the unit test.
+ ```ruby
+ # frozen_string_literal: true
+
+require 'test_helper'
+
+class NotificationMailerTest < ActionMailer::TestCase
+
+  def setup
+    @user = users(:one)
+  end
+
+  test 'welcome' do
+    email = NotificationMailer.welcome(@user)
+    assert_emails 1 do
+      email.deliver_later
+    end
+
+    assert_equal email.to, [@user.email]
+    assert_equal email.from, ['biodkod.co.ke']
+    assert_equal email.subject, 'Welcome to my App'
+    assert_match 'Were are glad you joined us', email.body.encoded
+  end
+end
+ ```
+ In the test we create the email and store the returned object in the email variable. We then ensure that it was sent (the first assert), then, in the second batch of assertions, we ensure that the email does indeed contain what we expect.
+
+### Conclusion
+ To understand more on mailers. The line `ActionMailer::Base.delivery_method = :test` in `config/environments/test.rb` sets the delivery method to test mode so that email will not actually be delivered (useful to avoid spamming your users while testing) but instead it will be appended to an array (`ActionMailer::Base.deliveries`)
+
+ > You can clear the deliveries array with `ActionMailer::Base.deliveries.clear`
