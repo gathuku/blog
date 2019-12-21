@@ -1,11 +1,11 @@
 ---
 title: Testing ActionMailer in Rails
 date: 2019-12-15
-published: false
+published: true
 tags: []
 series: false
 cover_image: ./images/action_mailer.jpg
-canonical_url: true
+canonical_url: false
 description: "Testing your Mailers can be sometimes complicated. Do you remember sending an email and heading to your inbox to see the email design and content? Right here are simple ways to test your Mailers."
 ---
 
