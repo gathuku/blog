@@ -4,7 +4,7 @@ date: 2019-12-15
 published: false
 tags: []
 series: false
-cover_image: ./images/action_mailer.jpeg
+cover_image: ./images/action_mailer.jpg
 canonical_url: true
 description: "Testing your Mailers can be sometimes complicated. Do you remember sending an email and heading to your inbox to see the email design and content? Right here are simple ways to test your Mailers."
 ---
