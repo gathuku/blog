@@ -5,20 +5,20 @@ published: false
 tags: []
 series: false
 cover_image: ./images/action_mailer.jpeg
-canonical_url: false
-description: "Testing your Mailers can be sometimes complicated. Do you remember sending and action email and heading to your inbox to see the email design and content? Right there are simple ways to test your Mailers."
+canonical_url: true
+description: "Testing your Mailers can be sometimes complicated. Do you remember sending an email and heading to your inbox to see the email design and content? Right here are simple ways to test your Mailers."
 ---
 
-Testing your Mailers can be sometimes complicated. Do you remember sending and action email and heading to your inbox to see the email design and content? Right there are simple ways to test your Mailers.
+Testing your Mailers can be sometimes complicated. Do you remember sending an email and heading to your inbox to see the email design and content? Right here are simple ways to test your Mailers.
 
-Rails provides us with useful test helpers to ActionMailer which helps to easily iterate our design, test if our code queus the right email and our email contains the right content.
+Rails provide us with useful test helpers to ActionMailer which helps to easily iterate our design, test if our code queues the right email and our email contains the right content.
 
 ### Getting Started
 After creating a rails app we can generate a new Mailer in our app.
 ```
 rails generate mailer NotificationMailer
 ```
-We the above commmand we generate a mailer named `NotificationMailer` , this creates:-
+We the above command we generate a mailer named `NotificationMailer`, this creates:-
 
 1. A class `NotificationMailer` in `app/mailers`   directory.
 2.  A class `NotificationMailerTest` in `test/mailers/notification_mailer_test.rb`
@@ -26,7 +26,7 @@ We the above commmand we generate a mailer named `NotificationMailer` , this cre
 4. A view directory `notification_mailer` in `app/views`
 
 ### Mailer Logic
-We are ready to create our first email. To create an email that is send when users sign up in your application head to `NotificationMailer` in `app/mailer`
+We are ready to create our first email. To create an email that is sent when users sign up in your application head to `NotificationMailer` in `app/mailer`
 
 ```ruby
 class NotificationMailer < ApplicationMailer
@@ -38,9 +38,9 @@ class NotificationMailer < ApplicationMailer
   end
 end
 ```
-We have defined a welcome method that send welcome email. The method accepts user object as the argument.
+We have defined a welcome method that sends a welcome email. The method accepts the user object as the argument.
 
-> Note we have defined the default from at the top of our class.
+> Note we have defined the `default from` at the top of our class.
 
 ### Mailer view
 After writing our logic remember `notification_mailer` directory that was created in our `app/view`, head into the directory and create a file named `welcome.erb.html`. The file will render HTML design for our email.
@@ -62,7 +62,7 @@ After writing our logic remember `notification_mailer` directory that was create
 ```
 
 ### Mailer Preview
-Remember the preview file that was created? Mailer preview enables us to preview our email design. This is helpful since we dont have to send the actual email to see oru email design.
+Remember the preview file that was created? Mailer preview enables us to preview our email design. This is helpful since we don't have to send the actual email to see our email design.
 All we need is to define a method that implements our mailer.  `notification_mailer_preview.rb`
 
 ```ruby
@@ -73,7 +73,7 @@ class NotificationMailerPreview < ActionMailer::Preview
   end
 end
 ```
-After this ensure you server is running and navigate to route `http://localhost:3000/rails/mailers`. All your mailers and sepecific email methods will be listed. Click `welcome` to view the welcome email design.
+After this ensure your server is running and navigate to route `http://localhost:3000/rails/mailers`. All your mailers and specific email methods will be listed. Click `welcome` to view the welcome email design.
 
 ### Testing
 
@@ -90,8 +90,8 @@ There are two aspects of testing mailers.
 
 #### Units tests
 
- In unit tests we run the mailer in isolation with tightly controlled inputs and compare the output to a known value (a fixture.)
- In our `NotificationMailer` we have `welcome` action which is used to send a welcome email when users signs up. Below is the unit test.
+ In unit tests, we run the mailer in isolation with tightly controlled inputs and compare the output to a known value (a fixture.)
+ In our `NotificationMailer` we have `welcome` action which is used to send a welcome email when users sign up. Below is the unit test.
  ```ruby
  # frozen_string_literal: true
 
@@ -116,9 +116,9 @@ class NotificationMailerTest < ActionMailer::TestCase
   end
 end
  ```
- In the test we create the email and store the returned object in the email variable. We then ensure that it was sent (the first assert), then, in the second batch of assertions, we ensure that the email does indeed contain what we expect.
+ In the test, we create the email and store the returned object in the email variable. We then ensure that it was sent (the first assert), then, in the second batch of assertions, we ensure that the email does indeed contain what we expect.
 
 ### Conclusion
- To understand more on mailers. The line `ActionMailer::Base.delivery_method = :test` in `config/environments/test.rb` sets the delivery method to test mode so that email will not actually be delivered (useful to avoid spamming your users while testing) but instead it will be appended to an array (`ActionMailer::Base.deliveries`)
+ To understand more about mailers. The line `ActionMailer::Base.delivery_method = :test` in `config/environments/test.rb` sets the delivery method to test mode so that email will not be delivered (useful to avoid spamming your users while testing) but instead, it will be appended to an array (`ActionMailer::Base.deliveries`)
 
  > You can clear the deliveries array with `ActionMailer::Base.deliveries.clear`
