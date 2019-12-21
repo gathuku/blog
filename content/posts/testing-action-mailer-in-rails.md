@@ -109,7 +109,7 @@ class NotificationMailerTest < ActionMailer::TestCase
     end
 
     assert_equal email.to, [@user.email]
-    assert_equal email.from, ['biodkod.co.ke']
+    assert_equal email.from, ['info@gathuku.tech']
     assert_equal email.subject, 'Welcome to my App'
     assert_match 'Thanks for signing', email.body.encoded
   end
