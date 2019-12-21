@@ -9,8 +9,6 @@ canonical_url: false
 description: "Testing your Mailers can be sometimes complicated. Do you remember sending an email and heading to your inbox to see the email design and content? Right here are simple ways to test your Mailers."
 ---
 
-Testing your Mailers can be sometimes complicated. Do you remember sending an email and heading to your inbox to see the email design and content? Right here are simple ways to test your Mailers.
-
 Rails provide us with useful test helpers to ActionMailer which helps to easily iterate our design, test if our code queues the right email and our email contains the right content.
 
 ### Getting Started
