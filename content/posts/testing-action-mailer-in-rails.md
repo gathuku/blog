@@ -16,7 +16,7 @@ After creating a rails app we can generate a new Mailer in our app.
 ```
 rails generate mailer NotificationMailer
 ```
-We the above command we generate a mailer named `NotificationMailer`, this creates:-
+With the above command we generate a mailer named `NotificationMailer`, this creates:-
 
 1. A class `NotificationMailer` in `app/mailers`   directory.
 2.  A class `NotificationMailerTest` in `test/mailers/notification_mailer_test.rb`
@@ -83,8 +83,9 @@ Why should you test your mailers? below are some of the reasons.
 - To ensure the right emails are being sent at the right times.
 
 There are two aspects of testing mailers.
- 1. Units tests
- 2. Functional tests
+
+ - Units tests
+ - Functional tests
 
 #### Units tests
 
@@ -110,11 +111,11 @@ class NotificationMailerTest < ActionMailer::TestCase
     assert_equal email.to, [@user.email]
     assert_equal email.from, ['biodkod.co.ke']
     assert_equal email.subject, 'Welcome to my App'
-    assert_match 'Were are glad you joined us', email.body.encoded
+    assert_match 'Thanks for signing', email.body.encoded
   end
 end
  ```
- In the test, we create the email and store the returned object in the email variable. We then ensure that it was sent (the first assert), then, in the second batch of assertions, we ensure that the email does indeed contain what we expect.
+ In the test above, we create the email and store the returned object in the email variable. We then ensure that it was sent (the first assert), then, in the second batch of assertions, we ensure that the email does indeed contain what we expect.
 
 ### Conclusion
  To understand more about mailers. The line `ActionMailer::Base.delivery_method = :test` in `config/environments/test.rb` sets the delivery method to test mode so that email will not be delivered (useful to avoid spamming your users while testing) but instead, it will be appended to an array (`ActionMailer::Base.deliveries`)
