@@ -6,7 +6,7 @@ tags: []
 series: false
 cover_image: ./images/docker.png
 canonical_url: false
-description: "While working in dockerizing a rails app or any other app using bundle for gems management, one of the problem is slow `bundle install` which building the image"
+description: "While dockerizing a rails app or any other app using bundler for gems management, one of the problem is slow bundle install while building the image"
 ---
 
 Assume you have a `docker-compose.yaml` below. You will be required to run `docker-compose build` every time you change your `Gemfile`, this can become time-consuming since it reinstalls all the `gems` a fresh. What if you can only run `bundle install` and get back to development just like you've been doing it without docker. Let's see how it's possible.
