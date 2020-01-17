@@ -9,7 +9,7 @@ canonical_url: false
 description: "While working in dockerizing a rails app or any other app using bundle for gems management, one of the problem is slow `bundle install` which building the image"
 ---
 
-Assume you have a `docker-compose.yaml` below. You will be required to run `docker-compose build` every time you change your `Gemfile`, this can become time consuming since it reinstall all the `gems` a fresh. What if you can only run `bundle install` and get back to development just like you've been doing it without docker. Lets see how its possible.
+Assume you have a `docker-compose.yaml` below. You will be required to run `docker-compose build` every time you change your `Gemfile`, this can become time-consuming since it reinstalls all the `gems` a fresh. What if you can only run `bundle install` and get back to development just like you've been doing it without docker. Let's see how it's possible.
 
 ```yaml
 version: "3"
@@ -36,9 +36,9 @@ volumes:
 ```
 
 ### Setting up `docker-compose.yaml`
-To acheive caching you will need.
-- Set up `BUNDLE_PATH` - set up bundle path in service environment
-- Set up a named volume `bundle-data` and add it to top level volume.
+To achieve caching you will need.
+- Set up `BUNDLE_PATH` - set up bundle path in-service environment
+- Set up a named volume `bundle-data` and add it to top-level volume.
 
 Below is the modified `docker-compose.yml`
 ```yaml
@@ -69,7 +69,7 @@ volumes:
 
 ```
 ### How to use it?
-To create cache on the gem run
+To create a cache on the gem run
 ```
 docker-compose app bundle install
 ```
@@ -89,4 +89,4 @@ docker-compose down
 ```
 
 ### Conclusion
-We this set up you are able cache gems. This helps alot in saving time.
+We this set up you can cache gems. This helps a lot in saving time.
