@@ -9,7 +9,7 @@ canonical_url: false
 description: "While dockerizing a rails app or any other app using bundler for gems management, one of the problem is slow bundle install while building the image"
 ---
 
-Assume you have a `docker-compose.yaml` below. You will be required to run `docker-compose build` every time you change your `Gemfile`, this can become time-consuming since it reinstalls all the `gems` a fresh. What if you can only run `bundle install` and get back to development just like you've been doing it without docker. Let's see how it's possible.
+Assume you have a `docker-compose.yaml` file below. You will be required to run `docker-compose build` every time you change your `Gemfile`, this can become time-consuming since it reinstalls all the `gems` a fresh. What if you can only run `bundle install` and get back to development just like you've been doing it without docker. Let's see how it's possible.
 
 ```yaml
 version: "3"
@@ -36,9 +36,9 @@ volumes:
 ```
 
 ### Setting up `docker-compose.yaml`
-To achieve caching you will need.
-- Set up `BUNDLE_PATH` - set up bundle path in-service environment
-- Set up a named volume `bundle-data` and add it to top-level volume.
+To achieve caching you will need to:-
+- Set up `BUNDLE_PATH` - set up bundle path in service environment variable
+- Set up a named volume `bundle-data` and add it to top-level volume. Responsible for storing gems.
 
 Below is the modified `docker-compose.yml`
 ```yaml
@@ -48,11 +48,11 @@ services:
     build: .
     volumes:
       - .:/app
-      - bundle-data: /bundle
+      - bundle-data: /bundle #add
     depends_on:
       - postgres
     environment:
-      - BUNDLE_PATH = /bundle/vendor
+      - BUNDLE_PATH = /bundle/vendor #add
   postgres:
     image: postgres
     ports:
@@ -65,21 +65,21 @@ services:
 
 volumes:
   postgres-data:
-  bundle-data:
+  bundle-data: #add
 
 ```
 ### How to use it?
-To create a cache on the gem run
+To create a gem cache, run
 ```
 docker-compose app bundle install
 ```
 The command will install all the gems in the volume we have defined.
 
-After adding or remove a gem in `Gemfile`. Stop the container
+After adding or remove a gem in `Gemfile`. Stop the container first
 ```
 docker-compose down
 ```
-Then install
+Then install, this will will install only the new gems.
 ```
 docker-compose app bundle install
 ```
