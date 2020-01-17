@@ -4,7 +4,7 @@ date: 2020-01-17
 published: true
 tags: []
 series: false
-cover_image: ./images/jam.jpeg
+cover_image: ./images/docker.png
 canonical_url: false
 description: "While working in dockerizing a rails app or any other app using bundle for gems management, one of the problem is slow `bundle install` which building the image"
 ---
