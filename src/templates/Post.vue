@@ -11,7 +11,7 @@
 
     <div class="post content-box">
       <div class="post__header">
-        <g-image alt="Cover image" v-if="$page.post.coverImage" :src="$page.post.coverImage" />
+        <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
       </div>
 
       <div class="post__content" v-html="$page.post.content" />
@@ -55,7 +55,7 @@ export default {
         },
         {
           name: "twitter:card",
-          content: this.$page.post.coverImage ? "summary_large_image" : "summary",
+          content: this.$page.post.cover_image ? "summary_large_image" : "summary",
         },
         {
           name: "twitter:creator",
@@ -67,7 +67,7 @@ export default {
         },
         {
           property: "og:image",
-          content: this.$page.post.coverImage || ""
+          content: this.$page.post.cover_image || ""
         }
       ]
     }
@@ -89,12 +89,23 @@ query Post ($path: String!) {
     }
     description
     content
-    coverImage (width: 860, blur: 10)
+    cover_image (width: 860, blur: 10)
   }
 }
 </page-query>
 
 <style lang="scss">
+@media screen and (max-width: 650px) {
+  .post-card{
+
+
+    &__header {
+      display: none;
+      max-height: auto;
+      object-fit: none;
+    }
+  }
+}
 .post-title {
   padding: calc(var(--space) / 2) 0 calc(var(--space) / 2);
   text-align: center;
@@ -109,6 +120,8 @@ query Post ($path: String!) {
     margin-bottom: calc(var(--space) / 2);
     overflow: hidden;
     border-radius: var(--radius) var(--radius) 0 0;
+    max-height: 450px;
+    object-fit: cover;
 
     img {
       width: 100%;

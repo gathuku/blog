@@ -1,12 +1,12 @@
 <template>
   <div class="post-card content-box" :class="{'post-card--has-poster' : post.poster}">
     <div class="post-card__header">
-      <g-image alt="Cover image" v-if="post.coverImage" class="post-card__image" :src="post.coverImage" />
+      <g-image alt="Cover image" v-if="post.cover_image" class="post-card__image" :src="post.cover_image" />
     </div>
     <div class="post-card__content">
       <h2 class="post-card__title" v-html="post.title" />
       <p class="post-card__description" v-html="post.description" />
-      
+
       <PostMeta class="post-card__meta" :post="post" />
       <PostTags class="post-card__tags" :post="post" />
 
@@ -29,17 +29,37 @@ export default {
 </script>
 
 <style lang="scss">
+@media screen and (max-width: 650px) {
+  .post-card{
+
+
+    &__header {
+      display: none;
+
+    }
+  }
+}
 .post-card {
   margin-bottom: var(--space);
   position: relative;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+
 
   &__header {
-    margin-left: calc(var(--space) * -1);
-    margin-right: calc(var(--space) * -1);
-    margin-bottom: calc(var(--space) / 2);
-    margin-top: calc(var(--space) * -1);
-    overflow: hidden;
-    border-radius: var(--radius) var(--radius) 0 0;
+    // margin-left: calc(var(--space) * 1);
+    // margin-right: calc(var(--space) * 1);
+    // margin-bottom: calc(var(--space) / 2);
+    // margin-top: calc(var(--space) * 1);
+    // overflow: hidden;
+    // border-radius: var(--radius) var(--radius) 0 0;
+    margin-right: 2em;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    object-fit: cover;
+
 
     &:empty {
       display: none;
@@ -47,7 +67,12 @@ export default {
   }
 
   &__image {
-    min-width: 100%;
+    width: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+
+
   }
 
   &__title {
